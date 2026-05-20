@@ -9,6 +9,10 @@ license.workspace = true
 name = "backend"
 path = "src/main.rs"
 
+[[bin]]
+name = "demo_client"
+path = "src/bin/demo_client.rs"
+
 [dependencies]
 domain = { workspace = true }
 application = { workspace = true }
@@ -26,6 +30,7 @@ thiserror.workspace = true
 uuid = { workspace = true, features = ["v4", "serde"] }
 chrono = { workspace = true, features = ["serde"] }
 anyhow.workspace = true
+reqwest = { workspace = true, features = ["json"] }
 
 [dev-dependencies]
 tokio = { workspace = true, features = ["full"] }

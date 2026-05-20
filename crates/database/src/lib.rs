@@ -8,3 +8,5 @@ pub mod sqlite;
 
 // 导出核心类型
 pub use sqlite::SqliteManager;
+pub use sqlite::SqliteOrderRepository;
+pub use sqlite::SqliteUserRepository;

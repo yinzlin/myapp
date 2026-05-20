@@ -25,6 +25,7 @@ chrono = { workspace = true, features = ["serde"] }
 tokio = { workspace = true, features = ["full"] }
 tracing.workspace = true
 anyhow.workspace = true
+async-trait = "0.1"
 
 [dev-dependencies]
 tokio = { workspace = true, features = ["full"] }

@@ -38,10 +38,15 @@ async fn main() -> anyhow::Result<()> {
     // 记录服务启动日志
     tracing::info!("正在启动后端服务...");
 
+    // 创建应用状态
+    let app_state = di::create_app_state().await;
+
     // 创建路由实例
     let app = Router::new()
         // 嵌套 API 路由到 /api 前缀下
         .nest("/api", api::routes::create_routes())
+        // 添加应用状态
+        .with_state(app_state)
         // 添加 CORS 中间件：允许所有来源和方法
         .layer(CorsLayer::new().allow_origin(Any).allow_methods(Any))
         // 添加请求追踪中间件：记录 HTTP 请求日志
