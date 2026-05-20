@@ -1,0 +1,46 @@
+[workspace]
+members = [
+    "crates/domain",
+    "crates/application",
+    "crates/backend",
+    "crates/database",
+    "crates/frontend",
+    "crates/common",
+]
+resolver = "3"
+
+[workspace.package]
+edition = "2024"
+version = "0.1.0"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+repository = "https://github.com/yourusername/myapp"
+
+[workspace.dependencies]
+tokio = "*"
+axum = "*"
+tower = "*"
+tower-http = "*"
+sqlx = "*"
+redis = "*"
+serde = "*"
+serde_json = "*"
+tracing = "*"
+tracing-subscriber = "*"
+anyhow = "*"
+thiserror = "*"
+uuid = "*"
+chrono = "*"
+dioxus = "*"
+dioxus-web = "*"
+
+domain = { path = "crates/domain" }
+application = { path = "crates/application" }
+database = { path = "crates/database" }
+common = { path = "crates/common" }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

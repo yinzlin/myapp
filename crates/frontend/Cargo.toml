@@ -1,0 +1,22 @@
+[package]
+name = "frontend"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "frontend"
+path = "src/main.rs"
+
+[dependencies]
+common = { workspace = true }
+dioxus = { workspace = true, features = ["web"] }
+dioxus-web.workspace = true
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
+tracing.workspace = true
+tracing-subscriber = { workspace = true, features = ["env-filter"] }
+anyhow.workspace = true
+
+[dev-dependencies]
