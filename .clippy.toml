@@ -1,2 +1,9 @@
+# Clippy Lint 配置文件
+# 参考文档: https://doc.rust-lang.org/clippy/
+
+# 最低支持的 Rust 版本（Minimum Supported Rust Version）
 msrv = "1.85.0"
+
+# 是否避免破坏已导出的 API
+# 设置为 false 表示允许 Clippy 建议可能破坏 API 的改进
 avoid-breaking-exported-api = false
