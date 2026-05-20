@@ -1,11 +1,22 @@
+# Cargo 编译配置文件
+# 参考文档: https://doc.rust-lang.org/cargo/reference/config.html
+
+# Windows MSVC 目标配置
 [target.x86_64-pc-windows-msvc]
+# 使用 LLVM 链接器（更快的链接速度）
 linker = "rust-lld.exe"
 
+# Windows GNU 目标配置
 [target.x86_64-pc-windows-gnu]
+# 使用 MinGW 链接器
 linker = "x86_64-w64-mingw32-gcc"
 
+# 构建配置
 [build]
+# 并行编译任务数（根据 CPU 核心数调整）
 jobs = 8
 
+# 网络配置
 [net]
+# 使用系统 Git 命令进行克隆（解决某些网络问题）
 git-fetch-with-cli = true

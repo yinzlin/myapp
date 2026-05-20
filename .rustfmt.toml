@@ -1,7 +1,23 @@
+# Rustfmt 代码格式化配置
+# 参考文档: https://rust-lang.github.io/rustfmt/
+
+# 每行最大字符数
 max_width = 100
+
+# 制表符转换为空格的数量
 tab_spaces = 4
+
+# 使用的 Rust 版本
 edition = "2024"
+
+# 是否使用启发式算法决定单行/多行格式化
 use_small_heuristics = "Default"
+
+# 换行风格: Auto（跟随平台）/ Unix / Windows
 newline_style = "Auto"
+
+# 是否使用字段初始化简写（field: field -> field）
 use_field_init_shorthand = true
+
+# 是否使用 try 简写（try! 宏 -> ? 操作符）
 use_try_shorthand = true
