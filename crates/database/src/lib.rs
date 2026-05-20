@@ -5,3 +5,6 @@
 pub mod postgres;
 pub mod redis;
 pub mod sqlite;
+
+// 导出核心类型
+pub use sqlite::SqliteManager;
