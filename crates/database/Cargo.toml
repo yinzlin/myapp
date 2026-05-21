@@ -8,24 +8,14 @@ license.workspace = true
 [dependencies]
 domain = { workspace = true }
 common = { workspace = true }
-sqlx = { workspace = true, features = [
-    "runtime-tokio",
-    "tls-rustls",
-    "sqlite",
-    "postgres",
-    "chrono",
-    "uuid",
-] }
-redis = { workspace = true, features = ["tokio-comp"] }
-serde = { workspace = true, features = ["derive"] }
+sqlx.workspace = true
+redis.workspace = true
+serde.workspace = true
 serde_json.workspace = true
 thiserror.workspace = true
-uuid = { workspace = true, features = ["v4", "serde"] }
-chrono = { workspace = true, features = ["serde"] }
-tokio = { workspace = true, features = ["full"] }
+uuid.workspace = true
+chrono.workspace = true
+tokio.workspace = true
 tracing.workspace = true
 anyhow.workspace = true
-async-trait = "0.1"
-
-[dev-dependencies]
-tokio = { workspace = true, features = ["full"] }
+async-trait.workspace = true

@@ -42,6 +42,24 @@ jobs:
       - name: 检查编译
         run: cargo check --all-targets --all-features
 
+  msrv:
+    name: MSRV 检查
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 读取 MSRV
+        id: msrv
+        run: echo "version=$(grep -oP '^\s*channel\s*=\s*"\K[^"]+' rust-toolchain.toml || echo '1.85')" >> $GITHUB_OUTPUT
+
+      - name: 安装指定版本 Rust
+        uses: dtolnay/rust-toolchain@${{ steps.msrv.outputs.version }}
+        with:
+          components: rustfmt, clippy
+
+      - name: 检查 MSRV 编译
+        run: cargo check --all-features
+
   test:
     name: 运行测试
     runs-on: ubuntu-latest

@@ -6,7 +6,7 @@ authors.workspace = true
 license.workspace = true
 
 [dependencies]
-serde = { workspace = true, features = ["derive"] }
+serde.workspace = true
 thiserror.workspace = true
-uuid = { workspace = true, features = ["v4", "serde"] }
-chrono = { workspace = true, features = ["serde"] }
+uuid.workspace = true
+chrono.workspace = true

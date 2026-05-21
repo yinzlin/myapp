@@ -1,0 +1,28 @@
+# Pre-commit Hooks 配置
+# 参考文档: https://pre-commit.com/
+
+repos:
+  # Rust 格式化检查
+  - repo: https://github.com/doublify/pre-commit-rust
+    rev: v1.0
+    hooks:
+      - id: fmt
+      - id: Clippy
+        args: ["--", "-D", "warnings"]
+
+  # 普通语言检查
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+
+  # Commit Message 格式检查
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.5.0
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]

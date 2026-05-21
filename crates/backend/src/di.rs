@@ -29,10 +29,7 @@ pub async fn create_app_state() -> AppState {
         .expect("无法连接到数据库");
 
     // 执行数据库迁移
-    db_manager
-        .migrate()
-        .await
-        .expect("无法执行数据库迁移");
+    db_manager.migrate().await.expect("无法执行数据库迁移");
 
     // 创建仓储实例
     let user_repo = Arc::new(SqliteUserRepository::new(Arc::clone(&db_manager.pool)));
