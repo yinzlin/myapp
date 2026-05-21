@@ -18,48 +18,38 @@ repository = "https://github.com/yinzlin/myapp"
 
 [workspace.dependencies]
 # Tokio 异步运行时
-tokio = { version = "1.43", features = ["full"] }
+tokio = "*"
 # Axum Web 框架
-axum = "0.8"
+axum = "*"
 # Tower 中间件库
-tower = "0.5"
+tower = "*"
 # Tower HTTP 扩展
-tower-http = { version = "0.6", features = ["cors", "trace", "fs"] }
+tower-http = "*"
 # SQLx 数据库框架
-sqlx = { version = "0.8", features = [
-    "runtime-tokio",
-    "postgres",
-    "sqlite",
-    "chrono",
-    "uuid",
-] }
+sqlx = "*"
 # Redis 客户端
-redis = { version = "0.27", default-features = false, features = [
-    "tokio",
-    "tokio-comp",
-    "connection-manager",
-] }
+redis = "*"
 # serde 序列化框架
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
+serde = "*"
+serde_json = "*"
 # tracing 日志追踪
-tracing = "0.1"
-tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing = "*"
+tracing-subscriber = "*"
 # Anyhow 错误处理
-anyhow = "1.0"
+anyhow = "*"
 # Thiserror 错误定义
-thiserror = "2.0"
+thiserror = "*"
 # UUID 生成
-uuid = { version = "1.0", features = ["v4", "serde"] }
+uuid = "*"
 # Chrono 时间处理
-chrono = { version = "0.4", features = ["serde"] }
+chrono = "*"
 # Dioxus 前端框架
-dioxus = "0.6"
-dioxus-web = "0.6"
+dioxus = "*"
+dioxus-web = "*"
 # Reqwest HTTP 客户端
-reqwest = { version = "0.12", features = ["json"] }
+reqwest = "*"
 # async-trait 异步 trait
-async-trait = "0.1"
+async-trait = "*"
 
 domain = { path = "crates/domain" }
 application = { path = "crates/application" }
