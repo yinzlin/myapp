@@ -22,27 +22,34 @@ description: "Rust 全栈工程化实践指南。Invoke when starting new Rust p
 
 ### 依赖管理（必须先读取）
 
+**根 workspace.dependencies 格式**（仅定义依赖名称，不设置 features）：
+
 ```toml
-# workspace.dependencies 格式
 [workspace.dependencies]
-tokio = { version = "1.43", features = ["full"] }
-axum = "0.8"
-tower-http = { version = "0.6", features = ["cors", "trace", "fs"] }
-sqlx = { version = "0.8", features = ["runtime-tokio", "postgres", "sqlite", "chrono", "uuid"] }
-redis = { version = "0.27", default-features = false, features = ["tokio", "tokio-comp", "connection-manager"] }
-serde = { version = "1.0", features = ["derive"] }
-thiserror = "2.0"
+tokio = "*"
+axum = "*"
+tower-http = "*"
+sqlx = "*"
+redis = "*"
+serde = "*"
+thiserror = "*"
 ```
 
-### 子 crate Cargo.toml 格式
+**子 crate Cargo.toml 格式**（features 按需开启）：
 
 ```toml
 [dependencies]
 domain.workspace = true
 application.workspace = true
-tokio.workspace = true
+tokio = { workspace = true, features = ["full"] }
 axum.workspace = true
+serde = { workspace = true, features = ["derive"] }
 ```
+
+**依赖管理原则**：
+- 根 `Cargo.toml` 只使用 `*` 版本号
+- 所有 features 在子 crate 中按需开启
+- 保持版本灵活性，按需编译
 
 ## 项目结构（六边形架构）
 

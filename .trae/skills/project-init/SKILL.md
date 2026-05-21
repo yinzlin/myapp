@@ -91,16 +91,16 @@ authors = ["Your Name <email@example.com>"]
 license = "MIT"
 
 [workspace.dependencies]
-# 依赖必须锁定版本，禁止使用 *
-tokio = { version = "1.43", features = ["full"] }
-axum = "0.8"
-tower = "0.5"
-tower-http = { version = "0.6", features = ["cors", "trace", "fs"] }
-sqlx = { version = "0.8", features = ["runtime-tokio", "postgres", "sqlite", "chrono", "uuid"] }
-redis = { version = "0.27", default-features = false, features = ["tokio", "tokio-comp", "connection-manager"] }
-serde = { version = "1.0", features = ["derive"] }
-thiserror = "2.0"
-async-trait = "0.1"
+# 根配置只使用 * 版本号，features 在子 crate 中按需开启
+tokio = "*"
+axum = "*"
+tower = "*"
+tower-http = "*"
+sqlx = "*"
+redis = "*"
+serde = "*"
+thiserror = "*"
+async-trait = "*"
 
 [profile.release]
 opt-level = 3
