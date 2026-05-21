@@ -39,7 +39,7 @@ impl UserService {
 
     /// 获取用户
     pub async fn get_user(&self, id: String) -> Result<UserResponse, ApplicationError> {
-        let user_id = UserId::from_str(&id)?;
+        let user_id = UserId::from_string(&id)?;
         let user = self.user_repo.find_by_id(user_id).await?;
 
         match user {
@@ -62,7 +62,7 @@ impl UserService {
         id: String,
         req: UpdateUserRequest,
     ) -> Result<UserResponse, ApplicationError> {
-        let user_id = UserId::from_str(&id)?;
+        let user_id = UserId::from_string(&id)?;
         let mut user = self
             .user_repo
             .find_by_id(user_id)
@@ -99,7 +99,7 @@ impl UserService {
 
     /// 删除用户
     pub async fn delete_user(&self, id: String) -> Result<(), ApplicationError> {
-        let user_id = UserId::from_str(&id)?;
+        let user_id = UserId::from_string(&id)?;
         self.user_repo.delete(user_id).await?;
         Ok(())
     }
@@ -128,7 +128,7 @@ impl OrderService {
         &self,
         req: CreateOrderRequest,
     ) -> Result<OrderResponse, ApplicationError> {
-        let user_id = UserId::from_str(&req.user_id)?;
+        let user_id = UserId::from_string(&req.user_id)?;
 
         // 验证用户存在
         if self.user_repo.find_by_id(user_id).await?.is_none() {
@@ -145,7 +145,7 @@ impl OrderService {
 
     /// 获取订单
     pub async fn get_order(&self, id: String) -> Result<OrderResponse, ApplicationError> {
-        let order_id = OrderId::from_str(&id)?;
+        let order_id = OrderId::from_string(&id)?;
         let order = self.order_repo.find_by_id(order_id).await?;
 
         match order {
@@ -161,7 +161,7 @@ impl OrderService {
         &self,
         user_id: String,
     ) -> Result<Vec<OrderResponse>, ApplicationError> {
-        let uid = UserId::from_str(&user_id)?;
+        let uid = UserId::from_string(&user_id)?;
         let orders = self.order_repo.find_by_user_id(uid).await?;
         Ok(orders.into_iter().map(|o| o.into()).collect())
     }
@@ -178,7 +178,7 @@ impl OrderService {
         order_id: String,
         req: AddOrderItemRequest,
     ) -> Result<OrderResponse, ApplicationError> {
-        let oid = OrderId::from_str(&order_id)?;
+        let oid = OrderId::from_string(&order_id)?;
         let mut order = self
             .order_repo
             .find_by_id(oid)
@@ -201,7 +201,7 @@ impl OrderService {
         order_id: String,
         req: SetDiscountRequest,
     ) -> Result<OrderResponse, ApplicationError> {
-        let oid = OrderId::from_str(&order_id)?;
+        let oid = OrderId::from_string(&order_id)?;
         let mut order = self
             .order_repo
             .find_by_id(oid)
@@ -221,7 +221,7 @@ impl OrderService {
         order_id: String,
         req: UpdateOrderStatusRequest,
     ) -> Result<OrderResponse, ApplicationError> {
-        let oid = OrderId::from_str(&order_id)?;
+        let oid = OrderId::from_string(&order_id)?;
         let mut order = self
             .order_repo
             .find_by_id(oid)
@@ -242,7 +242,7 @@ impl OrderService {
 
     /// 删除订单
     pub async fn delete_order(&self, id: String) -> Result<(), ApplicationError> {
-        let oid = OrderId::from_str(&id)?;
+        let oid = OrderId::from_string(&id)?;
         self.order_repo.delete(oid).await?;
         Ok(())
     }

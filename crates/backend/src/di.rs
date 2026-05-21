@@ -17,8 +17,6 @@ pub struct AppState {
     pub user_service: UserService,
     /// 订单服务
     pub order_service: OrderService,
-    /// 数据库管理器
-    pub db_manager: SqliteManager,
 }
 
 /// 创建应用状态
@@ -50,6 +48,5 @@ pub async fn create_app_state() -> AppState {
     AppState {
         user_service,
         order_service,
-        db_manager,
     }
 }

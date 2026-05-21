@@ -27,7 +27,7 @@ impl UserId {
     }
 
     /// 从字符串解析用户ID
-    pub fn from_str(s: &str) -> Result<Self, DomainError> {
+    pub fn from_string(s: &str) -> Result<Self, DomainError> {
         Uuid::parse_str(s)
             .map(UserId)
             .map_err(|_| DomainError::BusinessRuleViolation("无效的用户ID格式".into()))
@@ -57,7 +57,7 @@ impl OrderId {
     }
 
     /// 从字符串解析订单ID
-    pub fn from_str(s: &str) -> Result<Self, DomainError> {
+    pub fn from_string(s: &str) -> Result<Self, DomainError> {
         Uuid::parse_str(s)
             .map(OrderId)
             .map_err(|_| DomainError::BusinessRuleViolation("无效的订单ID格式".into()))
@@ -178,7 +178,7 @@ impl Money {
     }
 
     /// 金额加法
-    pub fn add(self, other: Self) -> Self {
+    pub fn add_money(self, other: Self) -> Self {
         Money(self.0 + other.0)
     }
 }
@@ -352,7 +352,7 @@ impl Tags {
 /// 元数据值对象
 ///
 /// 使用HashMap<String, String>类型，表示键值对元数据。
-#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Default, serde::Serialize, serde::Deserialize)]
 pub struct Metadata(HashMap<String, String>);
 
 impl Metadata {

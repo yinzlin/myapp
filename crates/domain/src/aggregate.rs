@@ -60,6 +60,7 @@ impl User {
     }
 
     /// 重建用户（从数据库加载时使用）
+    #[allow(clippy::too_many_arguments)]
     pub fn reconstruct(
         id: UserId,
         name: UserName,
@@ -243,6 +244,7 @@ impl Order {
     }
 
     /// 重建订单（从数据库加载时使用）
+    #[allow(clippy::too_many_arguments)]
     pub fn reconstruct(
         id: OrderId,
         user_id: UserId,
@@ -354,7 +356,7 @@ impl Order {
             .items
             .iter()
             .fold(Money::from_cents(0).unwrap(), |acc, item| {
-                acc.add(item.subtotal())
+                acc.add_money(item.subtotal())
             });
 
         let discount = (subtotal.cents() as f64 * self.discount_rate.value() as f64).round() as i64;
