@@ -17,22 +17,39 @@ license = "MIT"
 repository = "https://github.com/yinzlin/myapp"
 
 [workspace.dependencies]
+# Tokio 异步运行时
 tokio = "*"
+# Axum Web 框架
 axum = "*"
+# Tower 中间件库
 tower = "*"
+# Tower HTTP 扩展
 tower-http = "*"
+# SQLx 数据库框架
 sqlx = "*"
+# Redis 客户端
 redis = "*"
+# serde 序列化框架
 serde = "*"
 serde_json = "*"
+# tracing 日志追踪
 tracing = "*"
 tracing-subscriber = "*"
+# Anyhow 错误处理
 anyhow = "*"
+# Thiserror 错误定义
 thiserror = "*"
+# UUID 生成
 uuid = "*"
+# Chrono 时间处理
 chrono = "*"
+# Dioxus 前端框架
 dioxus = "*"
 dioxus-web = "*"
+# Reqwest HTTP 客户端
+reqwest = "*"
+# async-trait 异步 trait
+async-trait = "*"
 
 domain = { path = "crates/domain" }
 application = { path = "crates/application" }

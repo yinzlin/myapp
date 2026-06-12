@@ -10,13 +10,16 @@ domain = { workspace = true }
 common = { workspace = true }
 sqlx = { workspace = true, features = [
     "runtime-tokio",
-    "tls-rustls",
-    "sqlite",
     "postgres",
+    "sqlite",
     "chrono",
     "uuid",
 ] }
-redis = { workspace = true, features = ["tokio-comp"] }
+redis = { workspace = true, features = [
+    "tokio",
+    "tokio-comp",
+    "connection-manager",
+] }
 serde = { workspace = true, features = ["derive"] }
 serde_json.workspace = true
 thiserror.workspace = true
@@ -25,6 +28,4 @@ chrono = { workspace = true, features = ["serde"] }
 tokio = { workspace = true, features = ["full"] }
 tracing.workspace = true
 anyhow.workspace = true
-
-[dev-dependencies]
-tokio = { workspace = true, features = ["full"] }
+async-trait = "0.1"

@@ -1,0 +1,23 @@
+# Rust 工具链配置文件
+# 定义项目支持的最低 Rust 版本（MSRV）
+
+[toolchain]
+# 通道：使用 stable 确保稳定性
+channel = "stable"
+# 最低支持 Rust 版本：1.85.0
+# 注意：更新 MSRV 时需要同步更新 .clippy.toml 中的 msrv 配置
+components = [
+    "rustfmt",  # 代码格式化
+    "clippy",   # 代码检查
+    "rust-src", # 源代码（用于异步调试等）
+]
+
+[profile]
+# 覆盖默认的 build 脚本设置
+# 设置编译线程数以加快构建速度
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+lto = true
+codegen-units = 1

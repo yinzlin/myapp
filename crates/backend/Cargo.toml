@@ -9,6 +9,10 @@ license.workspace = true
 name = "backend"
 path = "src/main.rs"
 
+[[bin]]
+name = "demo_client"
+path = "src/bin/demo_client.rs"
+
 [dependencies]
 domain = { workspace = true }
 application = { workspace = true }
@@ -16,7 +20,7 @@ database = { workspace = true }
 common = { workspace = true }
 axum.workspace = true
 tower.workspace = true
-tower-http = { workspace = true, features = ["cors", "trace"] }
+tower-http = { workspace = true, features = ["cors", "trace", "fs"] }
 tokio = { workspace = true, features = ["full"] }
 serde = { workspace = true, features = ["derive"] }
 serde_json.workspace = true
@@ -26,6 +30,4 @@ thiserror.workspace = true
 uuid = { workspace = true, features = ["v4", "serde"] }
 chrono = { workspace = true, features = ["serde"] }
 anyhow.workspace = true
-
-[dev-dependencies]
-tokio = { workspace = true, features = ["full"] }
+reqwest = { workspace = true, features = ["json"] }

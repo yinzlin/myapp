@@ -19,5 +19,3 @@ tracing.workspace = true
 tracing-subscriber = { workspace = true, features = ["env-filter"] }
 anyhow.workspace = true
 uuid = { workspace = true, features = ["v4", "serde", "js"] }
-
-[dev-dependencies]

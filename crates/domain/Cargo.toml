@@ -11,5 +11,6 @@ serde = { workspace = true, features = ["derive"] }
 thiserror.workspace = true
 uuid = { workspace = true, features = ["v4", "serde"] }
 chrono = { workspace = true, features = ["serde"] }
+async-trait = "0.1"
 
 [dev-dependencies]
