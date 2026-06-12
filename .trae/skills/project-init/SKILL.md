@@ -1,5 +1,5 @@
 ---
-name: "project-init"
+name: "myapp"
 description: "初始化新的 Rust 全栈项目脚手架。Invoke when user wants to create a new project or reset from template."
 ---
 
@@ -38,8 +38,8 @@ nu --version
 
 ```bash
 # 1. 创建项目目录
-mkdir -p new-project
-cd new-project
+mkdir -p myapp
+cd myapp
 
 # 2. 创建 Rust workspace 结构
 mkdir -p crates/{domain,application,backend,database,frontend,common}
@@ -87,7 +87,7 @@ resolver = "3"
 [workspace.package]
 edition = "2024"
 version = "0.1.0"
-authors = ["Your Name <email@example.com>"]
+authors = ["Dreamer <835831088@qq.com>"]
 license = "MIT"
 
 [workspace.dependencies]
@@ -176,7 +176,7 @@ echo "📁 cd $PROJECT_NAME && just dev"
 
 ## 初始化检查清单
 
-- [ ] Rust 版本 >= 1.85
+- [ ] Rust 版本 >= 1.96
 - [ ] Cargo.lock 已生成
 - [ ] `cargo check` 通过
 - [ ] `cargo clippy -- -D warnings` 零警告
